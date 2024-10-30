@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidenav from "./Sidenav";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Form from "./components/Form";
+import List from "./components/List";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Sidenav />
+        {/* Manually enter the path and observe the elements */}
+        <Routes>
+          <Route path="/form" element={<Form />}></Route>
+          <Route path="/list" element={<List />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
